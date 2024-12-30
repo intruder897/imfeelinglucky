@@ -40,7 +40,7 @@ class GameDefaultImpl implements GameInterface
                 default => 0.1,
             };
 
-            return floor($score * $multiplier);
+            return $score * $multiplier;
         });
     }
 }
