@@ -24,7 +24,7 @@ class GameDefaultImpl implements GameInterface
         });
     }
 
-    public function calculatePrize(int $score): int
+    public function calculatePrize(int $score): float
     {
         $cacheKey = 'game_prize_' . $score;
 

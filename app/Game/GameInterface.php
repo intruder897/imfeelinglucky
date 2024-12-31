@@ -12,5 +12,5 @@ interface GameInterface
     public function play(): int;
     public function getResult(int $score): GameResult;
 
-    public function calculatePrize(int $score): int;
+    public function calculatePrize(int $score): float;
 }
