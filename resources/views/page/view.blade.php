@@ -20,4 +20,5 @@
 
     @include('page.components.game')
     @include('page.components.history')
+
 @endsection

@@ -17,7 +17,7 @@ class Page extends Model
 
     /** Configuration */
 
-    const DAYS_AMOUNT_LINK_VALID = 7;
+    const DAYS_AMOUNT_PAGE_VALID = 7;
 
     protected $fillable = [
         'uuid',
@@ -35,16 +35,6 @@ class Page extends Model
         'live',
         'expired'
     ];
-
-    public function resolveRouteBinding($value, $field = null)
-    {
-        $field = $field ?? $this->getRouteKeyName();
-
-        return $this->query()
-            ->where($field, '=', $value)
-            ->where('user_id', '=', Auth::id())
-            ->firstOrFail();
-    }
 
     /** Relationships */
 
@@ -75,8 +65,9 @@ class Page extends Model
         return route('page.view', ['page' => $this]);
     }
 
-    public static function getGenerateHref(): string {
-        return route('page.generate');
+    public function getUpdateKeyHref(): string
+    {
+        return route('page.update_key', ['page' => $this]);
     }
 
     public function getActivateHref(): string
